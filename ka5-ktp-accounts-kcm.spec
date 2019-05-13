@@ -1,29 +1,30 @@
-%define		kdeappsver	18.12.1
+%define		kdeappsver	19.04.1
+%define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		ktp-accounts-kcm
 Summary:	ktp-accounts-kcm
 Name:		ka5-%{kaname}
-Version:	18.12.1
+Version:	19.04.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	9e88678421605fa309d462d25327dca3
+# Source0-md5:	93c6bdd695697873e3af28fe57a5d608
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	intltool
-BuildRequires:	kf5-extra-cmake-modules >= 1.7.0
-BuildRequires:	kf5-kcmutils-devel
-BuildRequires:	kf5-kcodecs-devel
-BuildRequires:	kf5-kconfigwidgets-devel
-BuildRequires:	kf5-kcoreaddons-devel
-BuildRequires:	kf5-ki18n-devel
-BuildRequires:	kf5-kiconthemes-devel
-BuildRequires:	kf5-kio-devel
-BuildRequires:	kf5-kitemviews-devel
-BuildRequires:	kf5-kwidgetsaddons-devel
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcmutils-devel >= %{kframever}
+BuildRequires:	kf5-kcodecs-devel >= %{kframever}
+BuildRequires:	kf5-kconfigwidgets-devel >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf5-kio-devel >= %{kframever}
+BuildRequires:	kf5-kitemviews-devel >= %{kframever}
+BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
@@ -44,6 +45,7 @@ install -d build
 cd build
 %cmake \
 	-G Ninja \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
 %ninja_build
@@ -59,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libktpaccountskcminternal.so.18.*.*
+%attr(755,root,root) %{_libdir}/libktpaccountskcminternal.so.19.*.*
 %attr(755,root,root) %{_libdir}/libktpaccountskcminternal.so.9
 %dir %{_libdir}/qt5/plugins/kaccounts/ui
 %attr(755,root,root) %{_libdir}/qt5/plugins/kaccounts/ui/ktpaccountskcm_plugin_kaccounts.so
