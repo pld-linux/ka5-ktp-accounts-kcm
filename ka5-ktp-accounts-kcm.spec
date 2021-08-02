@@ -37,6 +37,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 KDE Control Module for managing Telepathy Accounts.
 
+%description -l pl.UTF-8
+Moduł kontroli KDE do zarządzania kontami Telepathy.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
