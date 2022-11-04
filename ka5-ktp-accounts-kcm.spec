@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.08.2
+%define		kdeappsver	22.08.3
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		ktp-accounts-kcm
 Summary:	ktp-accounts-kcm
 Name:		ka5-%{kaname}
-Version:	22.08.2
+Version:	22.08.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	5d2ff5a7a38f3747c1d3dcd5d2808346
+# Source0-md5:	880e27b3f8db688540a622198314b03e
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
